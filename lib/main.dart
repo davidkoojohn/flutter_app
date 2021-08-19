@@ -70,7 +70,21 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             FlatButton(
               child: const Text('to about'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MyAboutPage())),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => MyAboutPage()),
+              ),
+            ),
+            FlatButton(
+              child: const Text('open tip'),
+              onPressed: () async {
+                var result = await Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return TipPage(
+                    text: '来自首页的值',
+                  );
+                }));
+                //输出`TipRoute`路由返回结果
+                print("路由返回值: $result");
+              },
             )
           ],
         ),
@@ -99,3 +113,32 @@ class MyAboutPage extends StatelessWidget {
     );
   }
 }
+
+class TipPage extends StatelessWidget {
+  TipPage({ Key? key, required this.text }) : super(key: key);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('提示'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20),
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Text(text),
+              RaisedButton(
+                onPressed: () => Navigator.pop(context, "我是返回值"),
+                child: const Text("返回"),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
