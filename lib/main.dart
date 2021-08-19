@@ -68,6 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            FlatButton(
+              child: const Text('to about'),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MyAboutPage())),
+            )
           ],
         ),
       ),
@@ -75,6 +79,22 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class MyAboutPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          title: const Text('About')
+      ),
+      body: Center(
+        child: const Text(
+            "This is My About Page."
+        ),
       ),
     );
   }
