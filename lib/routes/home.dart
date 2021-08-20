@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/routes/tip.dart';
 
 /*
 * 有状态的组件 Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的;
@@ -57,7 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text('open tip'),
               onPressed: () async {
                 // var result = await Navigator.pushNamed(context, 'tip');
-                var result = await Navigator.of(context).pushNamed('tip');
+                // var result = await Navigator.of(context).pushNamed('tip');
+                var result = await Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return const TipPage(
+                    title: '来自首页的值',
+                  );
+                }));
+
                 //输出`TipRoute`路由返回结果
                 print("路由返回值: $result");
               },
