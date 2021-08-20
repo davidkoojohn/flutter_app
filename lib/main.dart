@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute:"/", //名为"/"的路由作为应用的home(首页)
       routes: {
+        'tip': (context) => const TipPage(title: 'TipPage命名路由 - Title',),
         'about': (context) => AboutPage(),
         '/': (context) => const MyHomePage(title: 'Flutter Demo 首页')
       },
@@ -79,11 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
             FlatButton(
               child: const Text('open tip'),
               onPressed: () async {
-                var result = await Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                  return TipPage(
-                    text: '来自首页的值',
-                  );
-                }));
+                // var result = await Navigator.pushNamed(context, 'tip');
+                var result = await Navigator.of(context).pushNamed('tip');
                 //输出`TipRoute`路由返回结果
                 print("路由返回值: $result");
               },
@@ -117,21 +115,22 @@ class AboutPage extends StatelessWidget {
 }
 
 class TipPage extends StatelessWidget {
-  TipPage({ Key? key, required this.text }) : super(key: key);
-  final String text;
+  const TipPage({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('提示'),
+        title: Text(title),
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Center(
           child: Column(
             children: <Widget>[
-              Text(text),
+              const Text('text'),
+              Text(title),
               RaisedButton(
                 // 1. 导航栏返回箭头 (不会返回数据给上一个路由)
                 // 2. 页面中的“返回”按钮 (返回数据给上一个路由)
