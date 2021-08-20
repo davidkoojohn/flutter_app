@@ -14,7 +14,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      home: const MyHomePage(title: 'Flutter Demo 首页'),
+      initialRoute:"/", //名为"/"的路由作为应用的home(首页)
+      routes: {
+        'about': (context) => AboutPage(),
+        '/': (context) => const MyHomePage(title: 'Flutter Demo 首页')
+      },
     );
   }
 }
@@ -70,9 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             FlatButton(
               child: const Text('to about'),
-              onPressed: () => Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => MyAboutPage()),
-              ),
+              onPressed: () => Navigator.pushNamed(context, 'about'),
             ),
             FlatButton(
               child: const Text('open tip'),
@@ -98,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class MyAboutPage extends StatelessWidget {
+class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,7 +133,9 @@ class TipPage extends StatelessWidget {
             children: <Widget>[
               Text(text),
               RaisedButton(
-                onPressed: () => Navigator.pop(context, "我是返回值"),
+                // 1. 导航栏返回箭头 (不会返回数据给上一个路由)
+                // 2. 页面中的“返回”按钮 (返回数据给上一个路由)
+                onPressed: () => Navigator.pop(context, "我是“返回”按钮的返回值"),
                 child: const Text("返回"),
               )
             ],
