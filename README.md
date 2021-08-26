@@ -19,3 +19,4 @@ samples, guidance on mobile development, and a full API reference.
 
 - [《Flutter实战》](https://book.flutterchina.club/)
 - [Dart 概览](https://www.dartcn.com/guides/language/language-tour)
+- [pub.dev](https://pub.dev/)

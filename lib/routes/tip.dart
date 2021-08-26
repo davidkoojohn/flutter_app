@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
 class TipPage extends StatelessWidget {
   const TipPage({Key? key, required this.title}) : super(key: key);
@@ -6,6 +7,12 @@ class TipPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 生成随机字符串
+    final wordPair = new WordPair.random();
+    print('=============');
+    print(wordPair.toString());
+    print('=============');
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
