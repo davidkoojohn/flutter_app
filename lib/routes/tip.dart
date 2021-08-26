@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
+import 'package:flutter_app/widgets/random_words_widget.dart';
 
 class TipPage extends StatelessWidget {
   const TipPage({Key? key, required this.title}) : super(key: key);
@@ -7,12 +7,6 @@ class TipPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 生成随机字符串
-    final wordPair = new WordPair.random();
-    print('=============');
-    print(wordPair.toString());
-    print('=============');
-
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -24,6 +18,7 @@ class TipPage extends StatelessWidget {
             children: <Widget>[
               const Text('text'),
               Text(title),
+              RandomWordsWidget(),
               RaisedButton(
                 // 1. 导航栏返回箭头 (不会返回数据给上一个路由)
                 // 2. 页面中的“返回”按钮 (返回数据给上一个路由)
