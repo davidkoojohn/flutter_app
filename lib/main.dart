@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
       initialRoute:"/", //名为"/"的路由作为应用的home(首页)
       routes: {
         TipPage.routeName: (context) => const TipPage(),
-        'about': (context) => AboutPage(),
-        '/': (context) => const MyHomePage(title: 'Flutter Demo 首页')
+        AboutPage.routeName: (context) => AboutPage(),
+        HomePage.routeName: (context) => const HomePage(title: 'Flutter Demo 首页')
       },
     );
   }

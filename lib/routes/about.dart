@@ -9,6 +9,8 @@ class AboutPage extends StatelessWidget {
   final String text;
   final Color backgroundColor;
 
+  static const routeName = '/about';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

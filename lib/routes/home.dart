@@ -16,15 +16,17 @@ import 'package:flutter_app/routes/tip.dart';
 *     1）父类内部实现细节，不应该暴露给外部
 *     2）父子类之间状态的传递和子类本身逻辑是无关的
 * */
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
+  static const routeName = '/';
+
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
