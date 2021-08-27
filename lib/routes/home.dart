@@ -57,13 +57,20 @@ class _MyHomePageState extends State<MyHomePage> {
             FlatButton(
               child: const Text('open tip'),
               onPressed: () async {
-                // var result = await Navigator.pushNamed(context, 'tip');
+                var result = await Navigator.pushNamed(
+                    context,
+                    TipPage.routeName,
+                    arguments: ScreenArguments(
+                      'Extract Arguments Screen',
+                      'This message is extracted in the build method.',
+                    )
+                );
                 // var result = await Navigator.of(context).pushNamed('tip');
-                var result = await Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                /*var result = await Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                   return const TipPage(
                     title: '来自首页的值',
                   );
-                }));
+                }));*/
 
                 //输出`TipRoute`路由返回结果
                 print("路由返回值: $result");
