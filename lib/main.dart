@@ -17,11 +17,27 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      initialRoute:"/", //名为"/"的路由作为应用的home(首页)
+      // initialRoute: HomePage.routeName,
+      home: const HomePage(title: 'Flutter Demo 首页'),
       routes: {
         TipPage.routeName: (context) => const TipPage(),
-        AboutPage.routeName: (context) => AboutPage(),
-        HomePage.routeName: (context) => const HomePage(title: 'Flutter Demo 首页')
+        // AboutPage.routeName: (context) => AboutPage(),
+        // HomePage.routeName: (context) => const HomePage()
+      },
+      onGenerateRoute: (settings) {
+        if(settings.name == AboutPage.routeName) {
+          final args = settings.arguments as AboutArguments;
+          return MaterialPageRoute(
+            builder: (context) {
+              return AboutPage(
+                text: args.text,
+                backgroundColor: args.backgroundColor,
+              );
+            },
+          );
+        }
+        assert(false, 'Need to implement ${settings.name}');
+        return null;
       },
     );
   }

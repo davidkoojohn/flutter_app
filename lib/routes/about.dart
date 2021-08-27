@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({
-    Key? key,
-    this.text: 'default about text',
-    this.backgroundColor: Colors.grey,
-  }) : super(key: key);
+class AboutArguments {
   final String text;
   final Color backgroundColor;
 
+  AboutArguments(this.text, this.backgroundColor);
+}
+
+class AboutPage extends StatelessWidget {
   static const routeName = '/about';
+
+  final String text;
+  final Color backgroundColor;
+  const AboutPage({
+    Key? key,
+    required this.text,
+    required this.backgroundColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

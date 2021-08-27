@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/routes/tip.dart';
+import 'package:flutter_app/routes/about.dart';
 
 /*
 * 有状态的组件 Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的;
@@ -53,8 +54,30 @@ class _HomePageState extends State<HomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             FlatButton(
-              child: const Text('to about'),
-              onPressed: () => Navigator.pushNamed(context, 'about'),
+              child: const Text('to about red'),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  AboutPage.routeName,
+                  arguments: AboutArguments(
+                    '首页点击传入的text',
+                    Colors.red,
+                  )
+                );
+              },
+            ),
+            FlatButton(
+              child: const Text('to about green'),
+              onPressed: () {
+                Navigator.pushNamed(
+                    context,
+                    AboutPage.routeName,
+                    arguments: AboutArguments(
+                      '首页点击传入的 green text',
+                      Colors.green,
+                    )
+                );
+              },
             ),
             FlatButton(
               child: const Text('open tip'),
