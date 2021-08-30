@@ -10,14 +10,17 @@ import 'package:english_words/english_words.dart';
 *
 * */
 
-class RandomWordsWidget extends StatelessWidget {
+
+class RandomWordsWidget extends StatefulWidget {
+  @override
+  _RandomWordsWidgetState createState() => _RandomWordsWidgetState();
+}
+
+class _RandomWordsWidgetState extends State<RandomWordsWidget> {
   @override
   Widget build(BuildContext context) {
-    // 生成随机字符串
     final wordPair = WordPair.random();
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Text(wordPair.toString()),
-    );
+
+    return Text(wordPair.asCamelCase);
   }
 }
