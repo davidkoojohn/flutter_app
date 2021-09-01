@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/routes/base.dart';
 import 'package:flutter_app/routes/home.dart';
 import 'package:flutter_app/routes/about.dart';
 import 'package:flutter_app/routes/tip.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       // initialRoute: HomePage.routeName,
       home: const HomePage(title: 'Flutter Demo 首页'),
       routes: {
+        BasePage.routeName: (context) => BasePage(),
         TipPage.routeName: (context) => const TipPage(),
         CounterPage.routeName: (context) => CounterPage(),
         // AboutPage.routeName: (context) => AboutPage(),

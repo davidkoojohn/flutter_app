@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/routes/base.dart';
 import 'package:flutter_app/routes/counter.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/about.dart';
@@ -40,6 +41,11 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            RaisedButton(
+              child: const Text('Base Widget'),
+              onPressed: () => Navigator.pushNamed(context, BasePage.routeName)
+            ),
+            const Divider(),
             FlatButton(
               child: const Text('counter'),
               onPressed: () {
