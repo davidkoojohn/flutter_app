@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BasePage extends StatefulWidget {
   static const routeName = '/base';
@@ -18,6 +19,13 @@ class _BasePageState extends State<BasePage> {
       body: Container(
         child: Column(
           children: <Widget>[
+            Text('hello widget!',
+              textScaleFactor: 3.0,
+              style: GoogleFonts.lato(
+                textStyle: const TextStyle(color: Colors.lightBlue)
+              ),
+            ),
+            const Divider(),
             const Text('hello widget!', textAlign: TextAlign.left, style: TextStyle(backgroundColor: Colors.yellow),),
             const Divider(),
             Text('base widget!'*6, overflow: TextOverflow.ellipsis, style: TextStyle(backgroundColor: Colors.yellow),),

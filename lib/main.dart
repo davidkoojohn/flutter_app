@@ -4,6 +4,7 @@ import 'package:flutter_app/routes/home.dart';
 import 'package:flutter_app/routes/about.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/counter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.brown,
+        /*
+        // 使用google字体
+        textTheme: GoogleFonts.latoTextTheme(
+          Theme.of(context).textTheme
+        )*/
       ),
       // initialRoute: HomePage.routeName,
       home: const HomePage(title: 'Flutter Demo 首页'),
