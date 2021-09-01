@@ -10,13 +10,6 @@ import 'package:flutter_app/routes/about.dart';
 * Stateful widget至少由两个类组成：
 *   1. StatefulWidget类
 *   2. State类； StatefulWidget类本身是不变的，但是State类中持有的状态在widget生命周期中可能会发生变化。
-*
-* 为什么要将build方法放在State中，而不是放在StatefulWidget中？
-* 主要是为了提高开发的灵活性。如果将build()方法放在StatefulWidget中则会有两个问题：
-*   1. 状态访问不便（将build()方法放在State中的话，构建过程不仅可以直接访问状态，而且也无需公开私有状态）
-*   2. 继承StatefulWidget不便
-*     1）父类内部实现细节，不应该暴露给外部
-*     2）父子类之间状态的传递和子类本身逻辑是无关的
 * */
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);

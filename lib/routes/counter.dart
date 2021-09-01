@@ -6,7 +6,12 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CounterWidget();
+    return Scaffold(
+      appBar: AppBar(
+          title: const Text('title')
+      ),
+      body: const CounterWidget(),
+    );
   }
 }
 

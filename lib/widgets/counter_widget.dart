@@ -22,20 +22,16 @@ class _CounterWidgetState extends State<CounterWidget>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('计数器'),
-      ),
-      body: Center(
-        child: FlatButton(
-            onPressed: () {
-              setState(() {
-                // _counter++;
-                _counter += 1;
-              });
-            },
-            child: Text("$_counter")
-        ),
+    print('build');
+    return Center(
+      child: FlatButton(
+          onPressed: () {
+            setState(() {
+              // _counter++;
+              _counter += 1;
+            });
+          },
+          child: Text("$_counter")
       ),
     );
   }
@@ -87,5 +83,13 @@ class _CounterWidgetState extends State<CounterWidget>{
   3. 在调用setState()之后。
   4. 在调用didChangeDependencies()之后。
   5. 在State对象从树中一个位置移除后（会调用deactivate）又重新插入到树的其它位置之后。
-* */
+
+* * 为什么要将build方法放在State中，而不是放在StatefulWidget中？
+* 主要是为了提高开发的灵活性。如果将build()方法放在StatefulWidget中则会有两个问题：
+*   1. 状态访问不便（将build()方法放在State中的话，构建过程不仅可以直接访问状态，而且也无需公开私有状态）
+*   2. 继承StatefulWidget不便
+*     1）父类内部实现细节，不应该暴露给外部
+*     2）父子类之间状态的传递和子类本身逻辑是无关的
+*
+* * */
 
