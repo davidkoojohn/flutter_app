@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/widgets/counter_widget.dart';
+import 'package:flutter_app/widgets/box_a.dart';
 
 class CounterPage extends StatelessWidget {
   static const routeName = '/counter';
@@ -10,7 +11,15 @@ class CounterPage extends StatelessWidget {
       appBar: AppBar(
           title: const Text('title')
       ),
-      body: const CounterWidget(),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            const CounterWidget(),
+            const Divider(),
+            BoxA(),
+          ],
+        ),
+      ),
     );
   }
 }
