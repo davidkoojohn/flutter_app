@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/routes/counter.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/about.dart';
 
@@ -46,6 +47,16 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            FlatButton(
+              child: const Text('counter'),
+              onPressed: () {
+                Navigator.pushNamed(
+                    context,
+                    CounterPage.routeName,
+                );
+              },
+            ),
+            const Divider(),
             const Text(
               '你可以多次点击这个按钮',
             ),
