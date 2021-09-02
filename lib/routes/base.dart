@@ -21,6 +21,36 @@ class _BasePageState extends State<BasePage> {
       body: Container(
         child: Column(
           children: <Widget>[
+            const Divider(),
+            SizedBox(
+              height: 5,
+              child: LinearProgressIndicator(
+                backgroundColor: Colors.grey[200],
+                valueColor: const AlwaysStoppedAnimation(Colors.blue),
+              ),
+            ),
+            const Divider(),
+            LinearProgressIndicator(
+              backgroundColor: Colors.grey[200],
+              valueColor: const AlwaysStoppedAnimation(Colors.blue),
+              value: .5,
+            ),
+            const Divider(),
+            SizedBox(
+              height: 100.0,
+              width: 100.0,
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.grey[200],
+                valueColor: const AlwaysStoppedAnimation(Colors.blue),
+              ),
+            ),
+            const Divider(),
+            CircularProgressIndicator(
+              backgroundColor: Colors.grey[200],
+              valueColor: const AlwaysStoppedAnimation(Colors.blue),
+              value: .7,
+            ),
+            const Divider(),
             Switch(value: _switchSelected, onChanged: (val){
               setState(() {
                 _switchSelected = val;
