@@ -19,6 +19,18 @@ class _BasePageState extends State<BasePage> {
       body: Container(
         child: Column(
           children: <Widget>[
+            const Image(image: NetworkImage('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png'),
+              width: 300.0,
+            ),
+            Image.network('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+              width: 300.0,
+            ),
+            const Image(image: AssetImage('assets/images/l&m.jpg'),
+              width: 200.0,
+            ),
+            Image.asset('assets/images/l&m.jpg',
+              width: 200.0,
+            ),
             Text('hello widget!',
               textScaleFactor: 3.0,
               style: GoogleFonts.lato(
