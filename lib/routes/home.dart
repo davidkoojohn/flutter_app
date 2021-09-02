@@ -41,6 +41,11 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            RaisedButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
+            OutlineButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
+            FlatButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.home_outlined)),
+            const Divider(),
             RaisedButton(
               child: const Text('Base Widget'),
               onPressed: () => Navigator.pushNamed(context, BasePage.routeName)
@@ -56,14 +61,18 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             const Divider(),
-            const Text(
-              '你可以多次点击这个按钮',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            FlatButton(
+            Text.rich(TextSpan(
+              children: [
+                const TextSpan(text: '你可以多次点击这个按钮：',),
+                TextSpan(text: '$_counter',
+                  style: TextStyle(
+                    color: Colors.redAccent[700],
+                    fontSize: 20.0
+                  ),
+                ),
+              ]
+            )),
+            OutlinedButton(
               child: const Text('to about red'),
               onPressed: () {
                 Navigator.pushNamed(
@@ -76,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                 );
               },
             ),
-            FlatButton(
+            RaisedButton(
               child: const Text('to about green'),
               onPressed: () {
                 Navigator.pushNamed(
@@ -89,8 +98,8 @@ class _HomePageState extends State<HomePage> {
                 );
               },
             ),
-            FlatButton(
-              child: const Text('open tip'),
+            IconButton(
+              icon: const Icon(Icons.privacy_tip),
               onPressed: () async {
                 var result = await Navigator.pushNamed(
                     context,
