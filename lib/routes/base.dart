@@ -19,6 +19,23 @@ class _BasePageState extends State<BasePage> {
       body: Container(
         child: Column(
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const <Widget>[
+                Icon(Icons.assessment, color: Colors.green),
+                Icon(Icons.accessible, color: Colors.green),
+                Icon(Icons.error, color: Colors.green),
+                Icon(Icons.fingerprint, color: Colors.green),
+                Icon(Icons.favorite, color: Colors.green),
+                Text('\uE914 \uE000 \uE90D \ue87d',
+                  style: TextStyle(
+                      fontFamily: 'MaterialIcons',
+                      fontSize: 30.0,
+                      color: Colors.green
+                  ),
+                ),
+              ],
+            ),
             const Padding(padding: EdgeInsets.all(16.0),
               child: SizedBox(
                 child: Image(image: AssetImage('assets/images/wbb.jpeg'),
@@ -27,8 +44,11 @@ class _BasePageState extends State<BasePage> {
             ),
             const Image(image: NetworkImage('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png'),
               width: 300.0,
+              height: 300.0,
               color: Colors.redAccent,
               colorBlendMode: BlendMode.difference,
+              alignment: Alignment.topCenter,
+              repeat: ImageRepeat.repeatY,
             ),
             Image.network('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
               width: 400.0,
