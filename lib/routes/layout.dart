@@ -18,6 +18,51 @@ class _LayoutPageState extends State<LayoutPage> {
         // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Flex(direction: Axis.horizontal,
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                  height: 100.0,
+                  color: Colors.red,
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  height: 100.0,
+                  color: Colors.greenAccent,
+                ),
+              )
+            ],
+          ),
+          Padding(padding: const EdgeInsets.all(20.0),
+            child: SizedBox(
+              height: 100.0,
+              child: Flex(direction: Axis.vertical,
+                children: <Widget>[
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 30.0,
+                      color: Colors.amber,
+                    ),
+                  ),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 30.0,
+                      color: Colors.green,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          const Divider(),
           Row(
             children: [
               Column(
@@ -82,15 +127,15 @@ class _LayoutPageState extends State<LayoutPage> {
 *
 * StatelessWidget和StatefulWidget就是两个用于组合Widget的基类，它们本身并不关联最终的渲染对象（RenderObjectWidget）
 *
+* Flex(direction: Axis.horizontal<水平> | Axis.vertical<垂直>) -> Expanded(flex: 2) | Spacer(flex: 1) -> Container()
 *
-* 沿水平 或 垂直方向 排布子组件 => Row和Column来实现线性布局 => 有主轴和纵轴之分
-* 在线性布局中，有两个定义对齐方式的枚举类 MainAxisAlignment 和 CrossAxisAlignment，分别代表主轴对齐和纵轴对齐
+* Row和Column都继承自Flex
+*   > Row 水平方向排列其子widget
+*   > Column 垂直方向排列其子widget
 *
-* Row可以在水平方向排列其子widget
 * - textDirection：表示水平方向子组件的布局顺序
 * - mainAxisSize: 表示Row在主轴(水平)方向占用的空间
 * - verticalDirection: 表示Row纵轴（垂直）的对齐方向
-* *
 * - mainAxisAlignment: 表示子组件在Row所占用的水平空间内对齐方式
 * - crossAxisAlignment：表示子组件在纵轴方向的对齐方式
 * */
