@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/routes/base.dart';
 import 'package:flutter_app/routes/counter.dart';
 import 'package:flutter_app/routes/form.dart';
+import 'package:flutter_app/routes/layout.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/about.dart';
 
@@ -54,6 +55,14 @@ class _HomePageState extends State<HomePage> {
               // colorBrightness: Brightness.light,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
               onPressed: () {},
+            ),
+            const Divider(),
+            FlatButton(
+                child: const Text('布局类组件'),
+                color: Colors.green,
+                colorBrightness: Brightness.dark,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                onPressed: () => Navigator.pushNamed(context, LayoutPage.routeName)
             ),
             const Divider(),
             RaisedButton(

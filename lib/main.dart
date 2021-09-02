@@ -3,6 +3,7 @@ import 'package:flutter_app/routes/base.dart';
 import 'package:flutter_app/routes/form.dart';
 import 'package:flutter_app/routes/home.dart';
 import 'package:flutter_app/routes/about.dart';
+import 'package:flutter_app/routes/layout.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/counter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         TipPage.routeName: (context) => const TipPage(),
         CounterPage.routeName: (context) => CounterPage(),
         FormPage.routeName: (context) => FormPage(),
+        LayoutPage.routeName: (context) => LayoutPage(),
       },
       onGenerateRoute: (settings) {
         if(settings.name == AboutPage.routeName) {
