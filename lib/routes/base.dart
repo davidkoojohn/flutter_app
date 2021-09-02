@@ -8,9 +8,48 @@ class BasePage extends StatefulWidget {
   _BasePageState createState() => _BasePageState();
 }
 
+/*
+*
+* TextField 监听文本变化也有两种方式：
+* 1. 设置onChange回调（专门用于监听文本变化），如：
+* onChanged: (v) {
+    print("onChange: $v");
+  }
+* 2. 通过controller监听（除了能监听文本变化外，它还可以设置默认值、选择文本），如：
+* @override
+  void initState() {
+    //监听输入改变
+    _unameController.addListener((){
+      print(_unameController.text);
+    });
+  }
+
+创建一个controller:
+TextEditingController _selectionController =  TextEditingController();
+*
+* */
+
 class _BasePageState extends State<BasePage> {
   bool _switchSelected = false;
   bool? _checkboxSelected = true;
+  TextEditingController _unameController = TextEditingController();
+  TextEditingController _selectionController = TextEditingController();
+  FocusNode _focusNode1 = FocusNode();
+  FocusNode _focusNode2 = FocusNode();
+  FocusScopeNode focusScopeNode = FocusScopeNode();
+
+  @override
+  void initState() {
+    _unameController.addListener((){
+      print(_unameController.text);
+    });
+
+    _selectionController.text = "hello world!";
+    _selectionController.selection = TextSelection(
+      baseOffset: 2,
+      extentOffset: _selectionController.text.length
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +57,70 @@ class _BasePageState extends State<BasePage> {
       appBar: AppBar(
         title: const Text('基础组件'),
       ),
-      body: Container(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             const Divider(),
-            SizedBox(
+            TextField(
+              autofocus: true,
+              focusNode: _focusNode1,
+              decoration: const InputDecoration(
+                labelText: '用户名',
+                hintText: '请输入用户名',
+                prefixIcon: Icon(Icons.person),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.yellow)
+                ),
+                focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red)
+                ),
+              ),
+              /*onChanged: (val){
+                print("onChange: $val");
+              },*/
+              controller: _unameController,
+            ),
+            TextField(
+              // autofocus: true,
+              focusNode: _focusNode2,
+              decoration: const InputDecoration(
+                labelText: '密码',
+                hintText: '请输入密码',
+                prefixIcon: Icon(Icons.lock)
+              ),
+              obscureText: true,
+            ),
+            Builder(builder: (ctx){
+              return Column(
+                children: <Widget>[
+                  RaisedButton(
+                    child: const Text('移动焦点'),
+                    onPressed: (){
+                      //将焦点从第一个TextField移到第二个TextField
+                      FocusScope.of(context).requestFocus(_focusNode2);
+                    },
+                  ),
+                  RaisedButton(
+                    child: const Text("隐藏键盘"),
+                    onPressed: () {
+                      // 当所有编辑框都失去焦点时键盘就会收起
+                      _focusNode1.unfocus();
+                      _focusNode2.unfocus();
+                    },
+                  ),
+                ],
+              );
+            }),
+            const Divider(),
+            TextField(
+              controller: _selectionController,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
+            ),
+            const Divider(),
+            /*SizedBox(
               height: 5,
               child: LinearProgressIndicator(
                 backgroundColor: Colors.grey[200],
@@ -49,7 +147,7 @@ class _BasePageState extends State<BasePage> {
               backgroundColor: Colors.grey[200],
               valueColor: const AlwaysStoppedAnimation(Colors.blue),
               value: .7,
-            ),
+            ),*/
             const Divider(),
             Switch(value: _switchSelected, onChanged: (val){
               setState(() {
