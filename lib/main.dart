@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/routes/base.dart';
+import 'package:flutter_app/routes/box.dart';
 import 'package:flutter_app/routes/form.dart';
 import 'package:flutter_app/routes/home.dart';
 import 'package:flutter_app/routes/about.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         CounterPage.routeName: (context) => CounterPage(),
         FormPage.routeName: (context) => FormPage(),
         LayoutPage.routeName: (context) => LayoutPage(),
+        BoxPage.routeName: (context) => BoxPage(),
       },
       onGenerateRoute: (settings) {
         if(settings.name == AboutPage.routeName) {

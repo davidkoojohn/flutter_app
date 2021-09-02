@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/routes/base.dart';
+import 'package:flutter_app/routes/box.dart';
 import 'package:flutter_app/routes/counter.dart';
 import 'package:flutter_app/routes/form.dart';
 import 'package:flutter_app/routes/layout.dart';
@@ -55,6 +56,14 @@ class _HomePageState extends State<HomePage> {
               // colorBrightness: Brightness.light,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
               onPressed: () {},
+            ),
+            const Divider(),
+            FlatButton(
+                child: const Text('容器类组件'),
+                color: Colors.blue[300],
+                colorBrightness: Brightness.dark,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                onPressed: () => Navigator.pushNamed(context, BoxPage.routeName)
             ),
             const Divider(),
             FlatButton(
