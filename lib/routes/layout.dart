@@ -16,8 +16,42 @@ class _LayoutPageState extends State<LayoutPage> {
       ),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Wrap(
+            spacing: 10.0, // 主轴(水平)方向间距
+            runSpacing: 4.0, // 纵轴（垂直）方向间距
+            alignment: WrapAlignment.center,
+            children: const <Widget>[
+              Chip(
+                avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text('A')),
+                label: Text('Hamilton'),
+              ),
+              Chip(
+                avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text('A')),
+                label: Text('Hamilton'),
+              ),
+              Chip(
+                avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text('A')),
+                label: Text('Hamilton'),
+              ),
+              Chip(
+                avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text('A')),
+                label: Text('Hamilton'),
+              ),
+              Chip(
+                avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text('A')),
+                label: Text('Hamilton'),
+              ),
+            ],
+          ),
+          Padding(padding: EdgeInsets.all(16.0),
+            child: Row(
+              children: <Widget>[
+                Text('hello'*100)
+              ],
+            ),
+          ),
           Flex(direction: Axis.horizontal,
             children: <Widget>[
               Expanded(
@@ -138,5 +172,12 @@ class _LayoutPageState extends State<LayoutPage> {
 * - verticalDirection: 表示Row纵轴（垂直）的对齐方向
 * - mainAxisAlignment: 表示子组件在Row所占用的水平空间内对齐方式
 * - crossAxisAlignment：表示子组件在纵轴方向的对齐方式
+*
+* Row默认只有一行，如果超出屏幕不会折行。我们把超出屏幕显示范围会自动折行的布局称为*流式布局*
+* Wrap()：
+* - spacing: 10.0, // 主轴(水平)方向间距
+* - runSpacing: 4.0, // 纵轴（垂直）方向间距
+* - alignment: WrapAlignment.center, // 沿主轴方向排列方式
+*
 * */
 
