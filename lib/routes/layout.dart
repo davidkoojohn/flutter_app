@@ -18,6 +18,37 @@ class _LayoutPageState extends State<LayoutPage> {
         // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Container(
+            height: 400.0,
+            width: 400.0,
+            color: Colors.greenAccent,
+            child: Stack(
+              alignment: Alignment.bottomLeft, // 如何去对齐没有定位的子组件 center, bottomLeft, ....
+              fit: StackFit.expand, // 没有定位的子组件如何去适应Stack的大小 expand, loose
+              // overflow: 超出Stack显示空间的子组件
+              // textDirection: TextDirection.rtl,
+              children: [
+                Container(
+                  child: const Text('hello stack', style: TextStyle(color: Colors.white),),
+                  color: Colors.redAccent,
+                ),
+                Container(
+                  child: const Text('hello stack', style: TextStyle(color: Colors.white),),
+                  color: Colors.redAccent,
+                ),
+                const Positioned(
+                  left: 100.0,
+                  top: 100.0,
+                  child: Text('樱木花道'),
+                ),
+                const Positioned(
+                  bottom: 10.0,
+                  right: 10.0,
+                  child: Text('笑傲江湖'),
+                )
+              ],
+            ),
+          ),
           Wrap(
             spacing: 10.0, // 主轴(水平)方向间距
             runSpacing: 4.0, // 纵轴（垂直）方向间距
