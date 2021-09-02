@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/routes/base.dart';
 import 'package:flutter_app/routes/counter.dart';
+import 'package:flutter_app/routes/form.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/about.dart';
 
@@ -58,6 +59,13 @@ class _HomePageState extends State<HomePage> {
             RaisedButton(
               child: const Text('Base Widget'),
               onPressed: () => Navigator.pushNamed(context, BasePage.routeName)
+            ),
+            FlatButton(
+              child: const Text('测试表单'),
+              color: Colors.green,
+              colorBrightness: Brightness.dark,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+              onPressed: () => Navigator.pushNamed(context, FormPage.routeName)
             ),
             const Divider(),
             FlatButton(

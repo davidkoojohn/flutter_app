@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/routes/base.dart';
+import 'package:flutter_app/routes/form.dart';
 import 'package:flutter_app/routes/home.dart';
 import 'package:flutter_app/routes/about.dart';
 import 'package:flutter_app/routes/tip.dart';
@@ -31,8 +32,7 @@ class MyApp extends StatelessWidget {
         BasePage.routeName: (context) => BasePage(),
         TipPage.routeName: (context) => const TipPage(),
         CounterPage.routeName: (context) => CounterPage(),
-        // AboutPage.routeName: (context) => AboutPage(),
-        // HomePage.routeName: (context) => const HomePage()
+        FormPage.routeName: (context) => FormPage(),
       },
       onGenerateRoute: (settings) {
         if(settings.name == AboutPage.routeName) {
