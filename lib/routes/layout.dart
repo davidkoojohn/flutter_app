@@ -19,6 +19,33 @@ class _LayoutPageState extends State<LayoutPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
+            height: 300.0,
+            width: 300.0,
+            color: Colors.red[100],
+            child: const Center(
+              // heightFactor: 3,
+              // widthFactor: 3,
+              child: FlutterLogo(
+                size: 100.0,
+              ),
+            ),
+          ),
+          Container(
+            // height: 300.0,
+            // width: 300.0,
+            color: Colors.blue[200],
+            child: const Align(
+              heightFactor: 3,
+              widthFactor: 3,
+              // alignment: Alignment.bottomRight, // center ....
+              // alignment: Alignment(1.5, 0.0), // center ....
+              alignment: FractionalOffset(.5, .8), // center ....
+              child: FlutterLogo(
+                size: 100.0,
+              ),
+            ),
+          ),
+          Container(
             height: 400.0,
             width: 400.0,
             color: Colors.greenAccent,
@@ -209,6 +236,15 @@ class _LayoutPageState extends State<LayoutPage> {
 * - spacing: 10.0, // 主轴(水平)方向间距
 * - runSpacing: 4.0, // 纵轴（垂直）方向间距
 * - alignment: WrapAlignment.center, // 沿主轴方向排列方式
+*
+* Align和Stack/Positioned都可以用于指定子元素相对于父元素的偏移，两个主要区别：
+* 1. 定位参考系统不同；Stack/Positioned定位的的参考系可以是父容器矩形的四个顶点；
+*    而Align则需要先通过alignment 参数来确定坐标原点，不同的alignment会对应不同原点，
+*    最终的偏移是需要通过alignment的转换公式来计算出
+* 2. Stack可以有多个子元素，并且子元素可以堆叠，而Align只能有一个子元素，不存在堆叠。
+*
+* Center继承自Align，它比Align只少了一个alignment 参数
+* Center组件其实是对齐方式确定（Alignment.center）了的Align
 *
 * */
 
