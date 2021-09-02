@@ -9,6 +9,8 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
+  bool _switchSelected = false;
+  bool? _checkboxSelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,16 @@ class _BasePageState extends State<BasePage> {
       body: Container(
         child: Column(
           children: <Widget>[
+            Switch(value: _switchSelected, onChanged: (val){
+              setState(() {
+                _switchSelected = val;
+              });
+            }),
+            Checkbox(value: _checkboxSelected, activeColor: Colors.green, onChanged: (val){
+              setState(() {
+                _checkboxSelected = val;
+              });
+            }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const <Widget>[
