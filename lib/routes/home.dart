@@ -45,6 +45,15 @@ class _HomePageState extends State<HomePage> {
             OutlineButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
             FlatButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
             IconButton(onPressed: () {}, icon: const Icon(Icons.home_outlined)),
+            RaisedButton(
+              child: const Text('自定义按钮'),
+              color: Colors.blue,
+              highlightColor: Colors.redAccent[700],
+              colorBrightness: Brightness.dark, // 文字为浅色
+              // colorBrightness: Brightness.light,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+              onPressed: () {},
+            ),
             const Divider(),
             RaisedButton(
               child: const Text('Base Widget'),
