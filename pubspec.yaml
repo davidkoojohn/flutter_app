@@ -26,3 +26,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/l&m.jpg
+    - assets/images/wbb.jpeg
+    - assets/images/lyf.webp

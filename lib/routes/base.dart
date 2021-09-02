@@ -19,11 +19,26 @@ class _BasePageState extends State<BasePage> {
       body: Container(
         child: Column(
           children: <Widget>[
+            const Padding(padding: EdgeInsets.all(16.0),
+              child: SizedBox(
+                child: Image(image: AssetImage('assets/images/wbb.jpeg'),
+                ),
+              ),
+            ),
             const Image(image: NetworkImage('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png'),
               width: 300.0,
+              color: Colors.redAccent,
+              colorBlendMode: BlendMode.difference,
             ),
             Image.network('https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
-              width: 300.0,
+              width: 400.0,
+              height: 400.0,
+              repeat: ImageRepeat.repeat,
+            ),
+            const Image(image: AssetImage('assets/images/lyf.webp'),
+              width: 400.0,
+              height: 400.0,
+              fit: BoxFit.cover, // cover, contain, fill, fitHeight, fitWidth
             ),
             const Image(image: AssetImage('assets/images/l&m.jpg'),
               width: 200.0,
