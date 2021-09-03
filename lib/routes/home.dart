@@ -4,6 +4,7 @@ import 'package:flutter_app/routes/box.dart';
 import 'package:flutter_app/routes/counter.dart';
 import 'package:flutter_app/routes/form.dart';
 import 'package:flutter_app/routes/layout.dart';
+import 'package:flutter_app/routes/scaffold.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/about.dart';
 
@@ -18,7 +19,7 @@ import 'package:flutter_app/routes/about.dart';
 class HomePage extends StatefulWidget {
   static const routeName = '/';
   final String title;
-  const HomePage({Key? key, required this.title}) : super(key: key);
+  const HomePage({Key? key, this.title: 'my app'}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -26,17 +27,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
-  int _selectedIndex = 1;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
-    });
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
     });
   }
 
@@ -45,54 +39,25 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: <Widget>[//导航栏右侧菜单
-          IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
-          // IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
-        ],
-        // leading: Image.asset('assets/images/wbb.jpeg', width: 10.0,),
-        leading: Builder(builder: (context) {
-          return IconButton(
-            icon: const Icon(Icons.dashboard, color: Colors.red,),
-            onPressed: () {
-              // 打开抽屉菜单
-              Scaffold.of(context).openDrawer();
-            },
-          );
-        },),
-        backgroundColor: Colors.blue,
-      ),
-      drawer: const Drawer(), // 抽屉
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('Business')),
-          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('School')),
-        ],
-        currentIndex: _selectedIndex,
-        fixedColor: Colors.blue,
-        onTap: _onItemTapped,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RaisedButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
-            OutlineButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
-            FlatButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.home_outlined)),
+            // RaisedButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
+            // OutlineButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
+            // FlatButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
+            // IconButton(onPressed: () {}, icon: const Icon(Icons.home_outlined)),
             RaisedButton(
-              child: const Text('自定义按钮'),
+              child: const Text('scaffold page'),
               color: Colors.blue,
               highlightColor: Colors.redAccent[700],
               colorBrightness: Brightness.dark, // 文字为浅色
               // colorBrightness: Brightness.light,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ScaffoldPage.routeName);
+              },
             ),
             const Divider(),
             FlatButton(
