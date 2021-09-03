@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'dart:math' as math;
 
 class BoxPage extends StatefulWidget {
   static const routeName = '/box';
@@ -25,6 +25,78 @@ class _BoxPageState extends State<BoxPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(
+              width: 400.0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 100.0),
+                child: Column(
+                  children: [
+                    Container(
+                      width: 400.0,
+                      height: 400.0,
+                      color: Colors.green,
+                      child: const RotatedBox(
+                        quarterTurns: 1, // 旋转90度(1/4圈)
+                        child: Align(
+                          child: Text('hello !!!'),
+                        ),
+                      ),
+                    ),
+                    const Divider(),
+                    Container(
+                      width: 400.0,
+                      height: 400.0,
+                      color: Colors.green,
+                      child: Transform.scale(
+                        scale: 5,
+                        child: const Align(
+                          child: Text('hello !!!'),
+                        ),
+                      ),
+                    ),
+                    const Divider(),
+                    Container(
+                      width: 400.0,
+                      height: 400.0,
+                      color: Colors.green,
+                      child: Transform.rotate(
+                        angle: math.pi / 2,
+                        child: const Align(
+                          child: Text('hello !!!'),
+                        ),
+                      ),
+                    ),
+                    const Divider(),
+                    Container(
+                      width: 400.0,
+                      height: 400.0,
+                      color: Colors.green,
+                      child: Transform.translate(
+                        offset: Offset(-10.0, 100.0),
+                        child: const Text('hello !!!'),
+                      ),
+                    ),
+                    Container(
+                      width: 200.0,
+                      height: 100.0,
+                      color: Colors.green,
+                      child: Transform(
+                        alignment: Alignment.topRight,
+                        transform: Matrix4.skewY(.3),
+                        child: Container(
+                          color: Colors.deepOrange,
+                          child: const Align(
+                            child: Text('Transform', style: TextStyle(
+                              fontSize: 25.0,
+                            ),),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
             DecoratedBox(
               decoration: BoxDecoration(
                 gradient: const LinearGradient(colors: [Colors.red, Colors.orange]),
@@ -159,5 +231,13 @@ class _BoxPageState extends State<BoxPage> {
 * UnconstrainedBox():
 * DecoratedBox(): 可以在其子组件绘制前(或后)绘制一些装饰（Decoration），如背景、边框、渐变等
 *   - decoration: BoxDecoration()
+*
+* Transform.translate()接收一个offset参数，可以在绘制时沿x、y轴对子组件平移指定的距离
+*   offset: Offset(-20.0, -5.0),
+* Transform.rotate可以对子组件进行旋转变换
+*   angle:math.pi/2
+* Transform.scale()可以对子组件进行缩小或放大
+*   scale: 1.5, //放大到1.5倍
+* RotatedBox()和Transform.rotate()功能相似可以对子组件进行旋转变换
 *
 * */
