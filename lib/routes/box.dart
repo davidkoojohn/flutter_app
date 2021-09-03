@@ -25,6 +25,28 @@ class _BoxPageState extends State<BoxPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(colors: [Colors.red, Colors.orange]),
+                borderRadius: BorderRadius.circular(5.0),
+                boxShadow: const <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.black45,
+                    blurRadius: 5.0,
+                    offset: Offset(2, 2),
+                  ),
+                  BoxShadow(
+                    color: Colors.green,
+                    blurRadius: 5.0,
+                    offset: Offset(2, -2),
+                  )
+                ],
+              ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 100.0),
+                child: Text('Login', style: TextStyle(color: Colors.white, fontSize: 20.0),),
+              ),
+            ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                 minHeight: 100,
@@ -132,6 +154,10 @@ class _BoxPageState extends State<BoxPage> {
 * EdgeInsets.only(top: xx) // 具体某个方向的填充
 * EdgeInsets.symmetric({ vertical, horizontal }) vertical指top和bottom，horizontal指left和right
 *
-*
+* ConstrainedBox():
+* SizedBox():
+* UnconstrainedBox():
+* DecoratedBox(): 可以在其子组件绘制前(或后)绘制一些装饰（Decoration），如背景、边框、渐变等
+*   - decoration: BoxDecoration()
 *
 * */
