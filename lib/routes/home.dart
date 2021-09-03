@@ -16,10 +16,9 @@ import 'package:flutter_app/routes/about.dart';
 *   2. State类； StatefulWidget类本身是不变的，但是State类中持有的状态在widget生命周期中可能会发生变化。
 * */
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
   static const routeName = '/';
+  final String title;
+  const HomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -27,10 +26,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
+  int _selectedIndex = 1;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
     });
   }
 
@@ -39,6 +45,37 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[//导航栏右侧菜单
+          IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
+          // IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
+        ],
+        // leading: Image.asset('assets/images/wbb.jpeg', width: 10.0,),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: const Icon(Icons.dashboard, color: Colors.red,),
+            onPressed: () {
+              // 打开抽屉菜单
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        },),
+        backgroundColor: Colors.blue,
+      ),
+      drawer: const Drawer(), // 抽屉
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
+          BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('Business')),
+          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('School')),
+        ],
+        currentIndex: _selectedIndex,
+        fixedColor: Colors.blue,
+        onTap: _onItemTapped,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
       body: Center(
         child: Column(
@@ -157,11 +194,6 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
