@@ -25,6 +25,47 @@ class _BoxPageState extends State<BoxPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /*
+            * Container()
+            *   - alignment
+            *   - margin
+            *   - padding
+            *   - color // 背景色
+            *   - decoration: Decoration(), // 背景装饰
+            *   - foregroundDecoration, // 前景装饰
+            *   - width
+            *   - height
+            *   - constraints: BoxConstraints(), //容器大小的限制条件
+            *   - transform
+            * */
+            Container(
+              margin: const EdgeInsets.only(top: 50.0, left: 120.0),
+              padding: const EdgeInsets.all(20.0),
+              // width: 200.0,
+              // height: 200.0,
+              constraints: const BoxConstraints.tightFor(width: 300.0, height: 150.0),
+              // color: Colors.orange,
+              decoration: const BoxDecoration(
+                gradient: RadialGradient( //背景径向渐变
+                    colors: [Colors.red, Colors.orange],
+                    center: Alignment.topLeft,
+                    radius: 1
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black54,
+                    offset: Offset(2.0, 2.0),
+                    blurRadius: 14.0
+                  )
+                ]
+              ),
+              alignment: Alignment.bottomRight, // center
+              // transform: Matrix4.rotationZ(.1),
+              child: const Text('Hello Container',
+                style: TextStyle(color: Colors.white, fontSize: 20.0, backgroundColor: Colors.green),
+              ),
+            ),
+            const Divider(),
             Container(
               width: 400.0,
               child: Padding(
