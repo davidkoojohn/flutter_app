@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/my_drawer_widget.dart';
 
 class ScaffoldPage extends StatefulWidget {
   static const routeName = '/scaffold';
@@ -53,7 +54,7 @@ class _ScaffoldPageState extends State<ScaffoldPage> with TickerProviderStateMix
           ),
           backgroundColor: Colors.blue,
         ),
-        drawer: const Drawer(), // 抽屉
+        drawer: MyDrawerWidget(), // 抽屉
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
 
