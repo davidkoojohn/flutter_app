@@ -54,6 +54,27 @@ class _ScaffoldPageState extends State<ScaffoldPage> with TickerProviderStateMix
           backgroundColor: Colors.blue,
         ),
         drawer: const Drawer(), // 抽屉
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+
+          onPressed: () {
+            print('handle float button');
+          },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          // color: Colors.blue,
+          shape: const CircularNotchedRectangle(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
+              const SizedBox(),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.business)),
+            ],
+          ),
+        ),
+        /*
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
@@ -63,7 +84,7 @@ class _ScaffoldPageState extends State<ScaffoldPage> with TickerProviderStateMix
           currentIndex: _selectedIndex,
           fixedColor: Colors.blue,
           onTap: _onItemTapped,
-        ),
+        ),*/
         body: TabBarView(
           controller: _tabController,
           children: tabs.map((e) { //创建3个Tab页
