@@ -6,18 +6,20 @@ class ScaffoldPage extends StatefulWidget {
   _ScaffoldPageState createState() => _ScaffoldPageState();
 }
 
-class _ScaffoldPageState extends State<ScaffoldPage> {
+class _ScaffoldPageState extends State<ScaffoldPage> with TickerProviderStateMixin {
   int _selectedIndex = 1;
   List tabs = ["新闻", "历史", "图片"];
-  // TabController _tabController;
+  TabController? _tabController;
 
   @override
   void initState() {
-    print('init state');
     super.initState();
-    /*_tabController = TabController(length: tabs.length, vsync: this)..addListener((){
-      print(_tabController.index);
-    });*/
+    _tabController = TabController(length: tabs.length, vsync: this);
+    print('init state');
+    print(_tabController);
+    _tabController?.addListener((){
+      print(_tabController?.index);
+    });
   }
 
   void _onItemTapped(int index) {
@@ -30,7 +32,7 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('sssss'),
+          title: const Text('追风少年'),
           actions: <Widget>[//导航栏右侧菜单
             IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
             // IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
@@ -45,10 +47,10 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
               },
             );
           },),
-          /*bottom: TabBar(
-          controller: _tabController,
-          tabs: tabs.map((e) => Tab(text: e,)).toList(),
-        ),*/
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: tabs.map((e) => Tab(text: e,)).toList(),
+          ),
           backgroundColor: Colors.blue,
         ),
         drawer: const Drawer(), // 抽屉
@@ -62,7 +64,15 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
           fixedColor: Colors.blue,
           onTap: _onItemTapped,
         ),
-        body: Text('sss')
+        body: TabBarView(
+          controller: _tabController,
+          children: tabs.map((e) { //创建3个Tab页
+            return Container(
+              alignment: Alignment.center,
+              child: Text(e, textScaleFactor: 5),
+            );
+          }).toList(),
+        )
     );
   }
 }
