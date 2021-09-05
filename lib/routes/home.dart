@@ -4,6 +4,7 @@ import 'package:flutter_app/routes/box.dart';
 import 'package:flutter_app/routes/counter.dart';
 import 'package:flutter_app/routes/form.dart';
 import 'package:flutter_app/routes/layout.dart';
+import 'package:flutter_app/routes/list.dart';
 import 'package:flutter_app/routes/scaffold.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/about.dart';
@@ -47,7 +48,9 @@ class _HomePageState extends State<HomePage> {
             // RaisedButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
             // OutlineButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
             // FlatButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
-            // IconButton(onPressed: () {}, icon: const Icon(Icons.home_outlined)),
+            IconButton(onPressed: () {
+              Navigator.pushNamed(context, ListPage.routeName);
+            }, icon: const Icon(Icons.list_alt_outlined)),
             RaisedButton(
               child: const Text('scaffold page'),
               color: Colors.blue,
