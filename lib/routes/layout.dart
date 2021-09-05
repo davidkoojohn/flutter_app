@@ -14,9 +14,11 @@ class _LayoutPageState extends State<LayoutPage> {
       appBar: AppBar(
         title: const Text('Layout'),
       ),
-      body: Column(
+      body: ListView(
         // mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        shrinkWrap: true,
+        padding: const EdgeInsets.all(16.0),
         children: [
           Container(
             height: 300.0,
