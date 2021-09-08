@@ -9,6 +9,7 @@ import 'package:flutter_app/routes/list.dart';
 import 'package:flutter_app/routes/scaffold.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/about.dart';
+import 'package:flutter_app/widgets/my_drawer_widget.dart';
 
 /*
 * 有状态的组件 Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的;
@@ -41,6 +42,36 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[//导航栏右侧菜单
+          IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
+        ],
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: const Icon(Icons.dashboard, color: Colors.blue,),
+            onPressed: () {
+              // 打开抽屉菜单
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        },)
+      ),
+      drawer: MyDrawerWidget(), // 抽屉
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: _incrementCounter,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.blue[300],
+        shape: const CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
+            const SizedBox(),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.business)),
+          ],
+        ),
       ),
       body: Scrollbar(
         child: SingleChildScrollView(
