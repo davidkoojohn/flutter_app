@@ -6,6 +6,7 @@ import 'package:flutter_app/routes/form.dart';
 import 'package:flutter_app/routes/intro.dart';
 import 'package:flutter_app/routes/layout.dart';
 import 'package:flutter_app/routes/list.dart';
+import 'package:flutter_app/routes/moments.dart';
 import 'package:flutter_app/routes/scaffold.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/about.dart';
@@ -77,7 +78,16 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(16.0),
         children: <Widget>[
           // RaisedButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
-          // OutlineButton.icon(onPressed: () {}, icon: const Icon(Icons.home), label: const Text('label')),
+          OutlineButton.icon(
+            onPressed: () {
+              Navigator.pushNamed(context, MomentsPage.routeName);
+            },
+            icon: const Icon(Icons.time_to_leave, color: Colors.blue,),
+            label: const Text(
+              '车友圈',
+              style: TextStyle(color: Colors.blue),
+            ),
+          ),
           RaisedButton.icon(onPressed: () {
             Navigator.pushNamed(context, IntroPage.routeName);
           }, icon: const Icon(Icons.layers), label: const Text('简单布局')),

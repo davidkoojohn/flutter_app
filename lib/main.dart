@@ -7,6 +7,7 @@ import 'package:flutter_app/routes/about.dart';
 import 'package:flutter_app/routes/intro.dart';
 import 'package:flutter_app/routes/layout.dart';
 import 'package:flutter_app/routes/list.dart';
+import 'package:flutter_app/routes/moments.dart';
 import 'package:flutter_app/routes/scaffold.dart';
 import 'package:flutter_app/routes/tip.dart';
 import 'package:flutter_app/routes/counter.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         ScaffoldPage.routeName: (context) => ScaffoldPage(),
         ListPage.routeName: (context) => ListPage(),
         IntroPage.routeName: (context) => IntroPage(),
+        MomentsPage.routeName: (context) => MomentsPage(),
       },
       onGenerateRoute: (settings) {
         if(settings.name == AboutPage.routeName) {
