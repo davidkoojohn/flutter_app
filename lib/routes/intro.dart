@@ -10,6 +10,8 @@ class IntroPage extends StatefulWidget {
 }
 
 class _IntroPageState extends State<IntroPage> {
+  bool _isFavorited = true;
+  int _favoriteCount = 41;
   int _counter = 0;
 
   void _increment() {
@@ -63,8 +65,22 @@ class _IntroPageState extends State<IntroPage> {
                     ],
                   ),
                 ),
-                const Icon(Icons.star, color: Colors.red,),
-                const Text('99', style: TextStyle(color: Colors.red),),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      if(_isFavorited) {
+                        _isFavorited = false;
+                        _favoriteCount += 1;
+                      } else {
+                        _isFavorited = true;
+                        _favoriteCount -= 1;
+                      }
+                    });
+                  },
+                  icon: _isFavorited ? const Icon(Icons.star_border) : const Icon(Icons.star),
+                  color: Colors.red[500]
+                ),
+                Text('$_favoriteCount', style: TextStyle(color: Colors.red),),
               ],
             ),
           ),
