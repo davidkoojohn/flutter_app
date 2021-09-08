@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
         ],
         leading: Builder(builder: (context) {
           return IconButton(
-            icon: const Icon(Icons.dashboard, color: Colors.blue,),
+            icon: const Icon(Icons.menu, color: Colors.white,),
             onPressed: () {
               // 打开抽屉菜单
               Scaffold.of(context).openDrawer();
