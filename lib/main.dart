@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         )*/
       ),
       // initialRoute: HomePage.routeName,
-      home: const HomePage(title: 'Flutter Demo 首页'),
+      home: const HomePage(title: 'Flutter App 首页'),
       routes: {
         BasePage.routeName: (context) => BasePage(),
         TipPage.routeName: (context) => const TipPage(),
