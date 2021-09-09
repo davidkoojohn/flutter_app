@@ -9,6 +9,21 @@ class MomentItemWidget extends StatefulWidget {
 }
 
 class _MomentItemWidgetState extends State<MomentItemWidget> {
+  bool _isFavour = false;
+  int _favourCount = 78;
+
+  void _handleFavour() {
+    setState(() {
+      if(_isFavour) {
+        _isFavour = false;
+        _favourCount -= 1;
+      } else {
+        _isFavour = true;
+        _favourCount += 1;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -95,19 +110,19 @@ class _MomentItemWidgetState extends State<MomentItemWidget> {
                                 children: <Widget>[
                                   SvgPicture.asset(
                                     'assets/moments/state-thumbs-up.svg',
-                                    color: const Color(0xFF80858C),
+                                    color: _isFavour ? Colors.blue : const Color(0xFF80858C),
                                     width: 18,
                                   ),
-                                  const Padding(
-                                      padding: EdgeInsets.only(left: 4.0),
-                                      child: Text('99', style: TextStyle(
-                                        color: Color(0xFF80858C),
+                                  Padding(
+                                      padding: const EdgeInsets.only(left: 4.0),
+                                      child: Text('$_favourCount', style: TextStyle(
+                                        color: _isFavour ? Colors.blue : const Color(0xFF80858C),
                                         fontSize: 12.0,
                                       ),)
                                   ),
                                 ],
                               ),
-                              onTap: () {},
+                              onTap: _handleFavour,
                             ),
                           ),
                           Container(
