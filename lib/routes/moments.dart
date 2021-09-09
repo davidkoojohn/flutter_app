@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MomentsPage extends StatefulWidget {
   static const routeName = '/moments';
@@ -144,12 +145,19 @@ class _MomentsPageState extends State<MomentsPage> {
                                 margin: const EdgeInsets.only(right: 20.0),
                                 child: GestureDetector(
                                   child: Row(
-                                    children: const <Widget>[
-                                      Icon(Icons.star, color: Color(0xFF80858C), size: 20,),
-                                      Text('99', style: TextStyle(
-                                        color: Color(0xFF80858C),
-                                        fontSize: 12.0,
-                                      ),)
+                                    children: <Widget>[
+                                      SvgPicture.asset(
+                                        'assets/moments/state-thumbs-up.svg',
+                                        color: const Color(0xFF80858C),
+                                        width: 18,
+                                      ),
+                                      const Padding(
+                                          padding: EdgeInsets.only(left: 4.0),
+                                          child: Text('99', style: TextStyle(
+                                            color: Color(0xFF80858C),
+                                            fontSize: 12.0,
+                                          ),)
+                                      ),
                                     ],
                                   ),
                                   onTap: () {},
@@ -159,12 +167,19 @@ class _MomentsPageState extends State<MomentsPage> {
                                 margin: const EdgeInsets.only(right: 20.0),
                                 child: GestureDetector(
                                   child: Row(
-                                    children: const <Widget>[
-                                      Icon(Icons.comment, color: Color(0xFF80858C), size: 20,),
-                                      Text('评论', style: TextStyle(
-                                        color: Color(0xFF80858C),
-                                        fontSize: 12.0,
-                                      ),)
+                                    children: <Widget>[
+                                      SvgPicture.asset(
+                                        'assets/moments/state-comment.svg',
+                                        color: const Color(0xFF80858C),
+                                        width: 18,
+                                      ),
+                                      const Padding(
+                                          padding: EdgeInsets.only(left: 4.0),
+                                          child: Text('评论', style: TextStyle(
+                                            color: Color(0xFF80858C),
+                                            fontSize: 12.0,
+                                          ),)
+                                      ),
                                     ],
                                   ),
                                   onTap: () {},
@@ -174,13 +189,19 @@ class _MomentsPageState extends State<MomentsPage> {
                                 margin: const EdgeInsets.only(right: 20.0),
                                 child: GestureDetector(
                                   child: Row(
-                                    children: const <Widget>[
-                                      // Image.file('assets/moments/state-delete.svg'),
-                                      Icon(Icons.delete, color: Color(0xFF80858C), size: 20,),
-                                      Text('删除', style: TextStyle(
-                                        color: Color(0xFF80858C),
-                                        fontSize: 12.0,
-                                      ),)
+                                    children: <Widget>[
+                                      SvgPicture.asset(
+                                        'assets/moments/state-delete.svg',
+                                        color: const Color(0xFF80858C),
+                                        width: 18,
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 4.0),
+                                        child: Text('删除', style: TextStyle(
+                                          color: Color(0xFF80858C),
+                                          fontSize: 12.0,
+                                        ),)
+                                      )
                                     ],
                                   ),
                                   onTap: () {},
