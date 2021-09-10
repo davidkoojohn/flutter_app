@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+class MomentType {
+  int id;
+  bool isFavour;
+  int favourCount;
+
+  MomentType(this.id, this.isFavour, this.favourCount);
+}
+
 class MomentItemWidget extends StatefulWidget {
-  const MomentItemWidget({Key? key}) : super(key: key);
+  const MomentItemWidget({Key? key, required this.favourMethod, required this.momentData}) : super(key: key);
+  final ValueChanged<MomentType> favourMethod;
+  final MomentType momentData;
 
   @override
   _MomentItemWidgetState createState() => _MomentItemWidgetState();
@@ -10,10 +20,20 @@ class MomentItemWidget extends StatefulWidget {
 
 class _MomentItemWidgetState extends State<MomentItemWidget> {
   bool _isFavour = false;
-  int _favourCount = 78;
+  int _favourCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _isFavour = widget.momentData.isFavour;
+    _favourCount = widget.momentData.favourCount;
+  }
 
   void _handleFavour() {
-    setState(() {
+    print(widget.momentData);
+    widget.favourMethod(widget.momentData);
+
+    /*setState(() {
       if(_isFavour) {
         _isFavour = false;
         _favourCount -= 1;
@@ -21,7 +41,7 @@ class _MomentItemWidgetState extends State<MomentItemWidget> {
         _isFavour = true;
         _favourCount += 1;
       }
-    });
+    });*/
   }
 
   @override

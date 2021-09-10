@@ -11,6 +11,10 @@ class MomentsPage extends StatefulWidget {
 
 class _MomentsPageState extends State<MomentsPage> {
 
+  void _favourMethod(MomentType arg) {
+    print(arg);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +35,7 @@ class _MomentsPageState extends State<MomentsPage> {
               SizedBox(
                 height: 210,
                 width: 375.0,
-                child: Expanded(
-                  child: Image.asset('assets/moments/friendcircle-banner.png', fit: BoxFit.cover,),
-                ),
+                child: Image.asset('assets/moments/friendcircle-banner.png', fit: BoxFit.cover,),
               ),
               Positioned(
                 right: 16.0,
@@ -75,11 +77,11 @@ class _MomentsPageState extends State<MomentsPage> {
               ),
             ],
           ),
-          const MomentItemWidget(),
-          const MomentItemWidget(),
-          const MomentItemWidget(),
-          const MomentItemWidget(),
-          const MomentItemWidget(),
+          MomentItemWidget(momentData: MomentType(1, false, 123), favourMethod: _favourMethod),
+          // const MomentItemWidget(),
+          // const MomentItemWidget(),
+          // const MomentItemWidget(),
+          // const MomentItemWidget(),
           Container(
             margin: const EdgeInsets.only(top: 12.0, bottom: 16.0),
             child: const Align(
