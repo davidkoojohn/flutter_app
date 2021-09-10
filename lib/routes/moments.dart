@@ -15,6 +15,17 @@ class _MomentsPageState extends State<MomentsPage> {
     print(arg);
   }
 
+  var momentsDataList = <MomentType>[
+    MomentType(1, false, 99),
+    MomentType(2, false, 79),
+    MomentType(3, true, 88),
+    MomentType(4, false, 19),
+    MomentType(5, true, 39),
+    MomentType(6, false, 9),
+    MomentType(7, true, 91),
+    MomentType(8, false, 1),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +88,7 @@ class _MomentsPageState extends State<MomentsPage> {
               ),
             ],
           ),
-          MomentItemWidget(momentData: MomentType(1, false, 123), favourMethod: _favourMethod),
+          for(var item in momentsDataList) MomentItemWidget(momentData: item, favourMethod: _favourMethod),
           // const MomentItemWidget(),
           // const MomentItemWidget(),
           // const MomentItemWidget(),
